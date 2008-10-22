@@ -1,0 +1,18 @@
+<h1>Listing rentables</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for rentable in @rentables %>
+  <tr>
+    <td><%= link_to 'Show', rentable %></td>
+    <td><%= link_to 'Edit', edit_rentable_path(rentable) %></td>
+    <td><%= link_to 'Destroy', rentable, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rentable', new_rentable_path %>

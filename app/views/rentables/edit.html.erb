@@ -1,0 +1,12 @@
+<h1>Editing rentable</h1>
+
+<% form_for(@rentable) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @rentable %> |
+<%= link_to 'Back', rentables_path %>
