@@ -1,0 +1,36 @@
+<h1><%= @trip.title -%></h1>
+<ul>
+<li><p><%= @trip.description -%></p></li>
+
+<li>
+Where will we meet: 
+<p><%= @trip.meeting_location -%>
+&nbsp <%= link_to "Details", @trip.meeting_location_link if @trip.meeting_location_link -%>
+&nbsp <%= link_to "Google Map", @trip.trip_meeting_location_map_link if @trip.trip_meeting_location_map_link -%>
+</p>
+</li>
+
+<li>Where we are going: 
+<p><%= @trip.location -%> &nbsp <%= link_to "Details", @trip.location_link if @trip.location_link -%>
+&nbsp <%= link_to "Google Map", @trip.trip_location_map_link if @trip.trip_location_map_link -%>
+</p>
+<% if @trip.embedded_location -%>
+  <%= @trip.embedded_location -%>
+<% end -%>
+</li>
+
+<% start_date_str = @trip.start.strftime("%A, %B %d %I:%M %p") if @trip.start -%>
+<% end_date_str = @trip.end.strftime("%A, %B %d %I:%M %p") if @trip.end -%>
+<li>From <%= start_date_str -%> to <%= end_date_str -%>
+</li>
+<li>How Much?: <%= number_to_currency(@trip.cost) -%>(Not including rentals, approx. $40-50 for the weekend for a board, wetsuit, booties, gloves)
+<p>
+What do you get for all that money? cost of the ferry to/from the island, cost of accommodation, beer one night, food one night, possibly breakfast for a day or two, good good good (one more? yes) good times.
+</p>
+</li>
+<br>
+<strong>
+YOU IN? <%= link_to "sign me up!", :controller => :trip_enrollments, :action => :new, :trip_id =>@trip.id, :payment_type => 'trip' -%>
+</strong>
+
+</ul>

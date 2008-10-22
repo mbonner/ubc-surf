@@ -1,0 +1,24 @@
+
+<% case story.class.to_s -%>
+<% when 'SimpleStory' -%>
+  <h2 class="title"><%= story.h2_content -%></h2>
+  <p><%= story.p_content -%></p>
+<% when 'DynamicStory' -%>
+  <% css_id_snub = "#{story.generate_title}_#{story.id}" -%>
+  <h2 class="title"><%= up_down_link css_id_snub, :text => story.css_id -%></h2>
+  <div id='<%= "#{css_id_snub}_summary"-%>'><p><%= story.summary_p_content -%></p></div>
+  <div id='<%= "#{css_id_snub}" -%>' style="display:none;">
+    <p><%= story.p_content -%></p>
+  </div>
+  
+<% when 'Trip' -%>
+  <h2 class="title"><%= up_down_link "trip_#{story.id}", :text => story.title -%></h2>
+  <div id='<%= "trip_#{story.id}_summary"-%>'><p><%= story.description -%></p></div>
+  <div id='<%= "trip_#{story.id}" -%>' style="display:none;">
+    <p><%= render :partial => 'trips/trip', :object => story -%></p>
+  </div>
+  
+<% else -%>
+<% end -%>
+
+

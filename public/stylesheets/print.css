@@ -1,0 +1,107 @@
+/* @override http://localhost:3000/stylesheets/report.css */
+
+* {
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	color: black;
+	
+}
+
+h1 {
+	font-weight: bold;
+	font-size: x-large;
+	font-variant: small-caps;
+	margin: 0;
+	padding: 0;
+}
+
+td {
+	padding-right: 5px;
+}
+#reportHeader h2 {
+	font-size: smaller;
+}
+
+#header {
+	font-size: smaller;
+}
+
+#row td {
+	text-align: center;
+	font-size: 8pt;
+}
+
+tr#row {
+}
+
+tr#tableHeader {
+	font-size: 10pt;
+	line-height: 9px;
+}
+
+
+#content th {
+	padding-bottom: 5px;
+	padding-left: 3px;
+}
+
+#content table {
+	display: table;
+	width: 6.75in;
+	text-align: left;
+	font-size: 9pt;
+	margin: 0;
+	float: none;
+	color: orange;
+}
+
+#leftAlignColumn {
+	text-align: left;
+}
+
+label {
+	font-weight: bold;
+}
+
+#coHeader {
+	font-weight: ;
+	font-style: italic;
+	text-decoration: underline;
+	font-weight: bold;
+}
+#coHeaderShaded {
+	
+	font-style: italic;
+	text-decoration: underline;
+	background-color: silver;
+	color: #fa1622;
+	
+}
+#subValue label {
+	padding-left: 5px;
+}
+
+#rightAlignColumn {
+	text-align: right;
+}
+
+#rightAlignColumn {
+	text-align: right;
+}
+
+#reportHeader {
+	text-align: center;
+}
+
+#centerAlignColumn {
+	text-align: center;
+}
+
+#footer {
+	font-size: xx-small;
+}
+
+
+#content td {
+	padding: 1px 1px;
+	vertical-align: top;
+}

@@ -1,0 +1,12 @@
+
+<div id="sidebar">
+  <h3>*simple text change*News&Events</h3>
+  <ul>
+    <% for story in @stories -%>
+      <%= render :partial => '/common/sidebar_story', :locals => {:story => story} -%>
+    <% end %>
+  </ul>
+  <p style="padding-left: 20px;">Check us out on <%= link_to "Facebook", "http://www.new.facebook.com/home.php#/group.php?gid=2995871521&refurl=http%3A%2F%2Fwww.new.facebook.com%2Fs.php%3Fref%3Dsearch%26init%3Dq%26q%3Dubc%2Bsurf" -%></p> 
+  <p style="padding-left: 20px;"><%= link_to "Join the club", :controller => :payments, :action => :new, :payment_type => :sign_up -%></p>
+</div>
+<br style="clear: both;">

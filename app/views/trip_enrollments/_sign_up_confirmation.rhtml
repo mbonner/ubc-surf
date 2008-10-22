@@ -1,0 +1,64 @@
+<h1>Thanks for signing up!</h1>
+
+<% if flash[:notice] -%>
+  <p><%= h(flash[:notice]) -%></p>
+<% elsif flash[:error] -%>
+  <% logger.error(debug(@trip_enrollment)) -%>
+  <p style="color:red;"><%= h(flash[:error]) -%></p>
+<% end -%>
+
+<h2>We recorded the following information:</h2>
+<p>
+<%= debug @trip_enrollment -%>
+
+</p>
+
+<p>
+<%# first_name = (split_name = @trip_enrollment.name.split(" ")).pop -%>
+<%# last_name = split_name.flatten! -%>
+<% payment_service_for @trip_enrollment.payment_id, PAYPAL_ACCOUNT, 
+  :amount => @trip_cost, :currency => 'CAD',
+  #:amount => @enrollment.course.deposit, :currency => 'USD',
+  :service => :paypal do |service| 
+  
+  # no customer info. 
+  #service.customer :first_name => @enrollment.student.first_name,
+  service.customer :first_name => @trip_enrollment.first_name,
+  #:last_name => @enrollment.student.last_name,
+  :last_name => @trip_enrollment.last_name 
+  #:phone => @enrollment.student.phone,
+  #:phone => "6047298444",
+  #:email => 'bonner_1218667711_per@gmail.com'
+
+  #service.billing_address :city => @enrollment.student.city,
+  #:address1 => @enrollment.student.street,
+  #:state => @enrollment.student.state,
+  #:country => 'USA',
+  #:zip => @enrollment.student.zip
+
+  #service.item_name "#{@enrollment.course.program} Deposit"
+  service.item_name "UBC Surf Club Trip Fees."
+  #service.invoice @enrollment.invoice.id
+  service.invoice @trip_enrollment.payment_id
+  service.tax '0.00'
+  service.notify_url url_for(:only_path => false, :controller => :payments, :action => 'notify')
+  # ?? 
+  #service.return_url url_for(:only_path => false,
+  # :controller => 'payments', :action => 'thank_you')
+  # ?? is this, @ paypal if you hit cancel
+  #service.cancel_return_url url_for(:only_path => false,
+  # :controller => 'payments', :action => 'payment_error') %>
+  <p>
+  We have saved your information but you ARE NOT on the trip officially until you pay.  
+  Before you do so, please read the information regarding trip refunds on the <%= link_to "trips", :controller => :content, :action => :show, :content => 'trips' -%> page. 
+  You have to stop by the <%= link_to "office", "/images/club_office_map.jpg" -%> or work something out with us by calling or email us, either way no go unless pay.  AMS is working on a pilot program to accept money through paypal but for the time being they do not allow us to do it, sorry. 
+  <%#= submit_tag 'Pay for trip' %>
+<!--
+  You can either stop by
+  the <%= link_to "office", "/images/club_office_map.jpg" -%> or you can pay online right now 
+  <%#= submit_tag 'Pay for trip' %>
+-->
+  </p>
+
+<% end %>
+</p>

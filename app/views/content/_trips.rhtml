@@ -1,0 +1,105 @@
+<html><head><title>Trips</title>
+
+<h1><EM><STRONG>Scheduled 2008/2009 Trips</STRONG></EM></h1>
+<HR></HR>
+<% trips = Trip.find(:all) -%>
+<ul>
+<% for trip in trips -%>
+<li>
+<p>cost: <%= trip.cost -%> start: <%= trip.start -%> end: <%= trip.end -%> to: <%= trip.location -%>
+&nbsp
+<%= link_to "Details", :controller => :trips, :action => :show, :id => trip.id -%>
+</p>
+</li>
+<% end -%>
+</ul>
+<h1><EM><STRONG>Annual Trips</STRONG></EM></h1>
+<HR></HR>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head><body>
+<div align="center">
+<!-- Change this to trips -->
+<!-- <p><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006//travel/travel.jpg" height="71" width="214"></p> -->
+<table title="does this exist, make sense?" border="0" cellpadding="2" cellspacing="10" width="80%">
+<tbody><tr>
+<td>&nbsp;</td>
+<!-- title, maybe underline or bold this, make bigger maybe... i dunno -->
+<td><strong>September Camping Trip To Tofino/Ucluelet</strong></td>
+</tr>
+<tr>
+<!-- blank -->
+<td><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006/travel/Tofino%202.jpg"></td>
+<!-- description -->
+<td>Every September the week after club week we go on a camping trip to <a href="http://www.surfjunction.com/" title="Surf Junction Campground">Surf Junction Campground</a>.
+The campground has a sweet hot tub, cost is usually around $150 and it includes transportation to/from the campground and beaches, one dinner, beer, surfboard rentals, and camping.
+This trip can accommodate pretty much as many people as we desire, were looking into renting the whole campground along w/ the Uvic surf club, stay tuned, itll be a gong show regardless.
+</td>
+</tr>
+<td>&nbsp;</td>
+<td><strong>Westport Trips</strong></td>
+</tr>
+<tr>
+<!-- <td><%#= image_tag "westport1.jpg", :height => 130 -%></td> -->
+<td><%= image_tag "westport_wave.jpg", :height => 130 -%></td>
+<td>In October and November we go on several bare bones trips (ie no we dont take care of rentals) to Westport Washington that are geared for more experienced surfers (ie we dont take care of rentals).
+Wesport is an interesting place w/ a bit of a pirate fetish, but the waves are generally bigger than Tofino and can be really clean as well.
+We usually stay in a super nice motel (<%= link_to "sarcasm", "http://maps.google.ca/maps?ie=UTF-8&oe=utf-8&rls=org.mozilla:en-US:official&client=firefox-a&um=1&q=cranberry+motel+westport+washington&fb=1&view=text&latlng=4604443846064334852" -%>) that ends up being about $10 per night per person; combine that with not having to pay for the ferry and US gas prices these trips end up being our most economical.  
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><strong>October Tofino Trips</strong></td>
+</tr>
+<tr>
+<td><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006/travel/house.jpg"></td>
+<td>In late September and in October we offer two to three trips back to tofino.  We usually stay in the <a href="http://www.surfsinn.ca/" title="Surfs Inn">Surfs Inn </a>
+which can accommodate around twenty people.  These trips usually cost a bit more (like $190 or so) and include all the same stuff as the camping trip.</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><strong>Reading Break Trip</strong></td>
+</tr>
+<tr>
+<td><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006/travel/800px-Palms_El_Salvador.JPG"></td>
+<td>Every year we have a big reading break trip.  Past trips have gone to costa rica and various places in Mexico.  
+This year we are researching El Salvador, Nicaragua, Panama, and as a last restort we will try to get back to <a href="http://www.malpaissurfcamp.com/" title="Mal Pais Surf Camp">Mal Pais Surf Camp</a>
+in Mal Pais, Costa Rica.  The club traveled to Mal Pais in 2005 and it was an amazing trip, we cant go wrong heading there.  If anybody has an experience, thoughts, insisght on any of these potential locations send us an email, wed love to hear your thoughts/experiences.
+The trips usually costs around $1000 and it always covers airfare and boarding;  It may also cover board rentals, it depends on where we are staying.
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<!-- title, maybe underline or bold this, make bigger maybe... i dunno -->
+<td><strong>Easter Long Weekend Camping Trip to Tofino/Ucluelet</strong></td>
+</tr>
+<tr>
+<!-- blank -->
+<td><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006/travel/hottub.jpg"></td>
+<!-- description -->
+<td>This past Easter Long weekend we had our first of hopefully what will become an annual trip back to <a href="http://www.surfjunction.com/" title="Surf Junction Campground">Surf Junction Campground</a>.
+The trip was a huge success, fun was had by all, the surf was great so was the food so were the people, a good time was had by all.  
+Its a three day trip and it cost $170 and that included transportation, 1.5 dinners, 2 kegs of beer, rentals, and good good times.
+</td>
+</tr>  
+<!-- picture -->
+<tr><td>&nbsp;</td>
+<!-- title, maybe underline or bold this, make bigger maybe... i dunno -->
+<td><strong>End of School Year Baja Trip</strong></td>
+</tr>
+<tr>
+<!-- blank -->
+<td><img src="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006/travel/SunsetPtSayulita4.jpg"></td>
+<!-- description -->
+<td>So we are considering doing a club trip to Baja after finals in late April/early May. We will most likely head to Baja (ie mexico).  Its hot, the waves are great, its cheap, not much more we can say (maybe fish tacos, f-yah).  We will keep you posted, you keep your ears peeled.
+</td>
+</tr>  
+</tbody></table>
+<p align="left">
+keep in mind here guys, <b>no refunds</b> unless you can find a replacement.  Its hard enough doing this trips without people (especially drivers) backing out at the last minute, so as a rule we do not reserve spots unless you pay (ie if your on the list and you have not paid you may get bumped for somebody with the $) or if you have paid and anything comes up and you are unable to go it is <b>your</b> responsibility to find a replacement, otherwise we can not return your money.  This may sound a bit stringent at the moment, but trust me, we have to pay for stuff in advance and we def. cannot afford for a large portion of a trip to back out, its just not doable, we have to commit to hotels, rental places, ferry reservations, and on and on... 
+</p>
+<p>&nbsp;</p>
+<p align="left">This page chronicles the global adventures of people in the surf club. Many of the execs are well traveled, knowledgeable about foreign countries, and want to share their wavely conquests with all. However, anyone else may send in tales of victory and defeat at the hands of the ocean in far away lands, and it shall be posted here in a timely fashion.</p>
+<p align="left"><a href="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006//travel/pete_costa_rica.htm">Pete "El Presidente" Sanford and his travels to Costa Rica </a></p>
+<p align="left"> <a href="http://www.ams.ubc.ca/clubs/surfclub/surfclub2006//travel/nick_south_africa.htm">Nick Straughan on surfing South Africa</a></p>
+</div>
+</body></html>

@@ -1,0 +1,16 @@
+<% suit_sizes = ['xs','s','m','l','xl','xxl'] -%> 
+<li id='suit-size-form' style="display:none;">
+  <ul>
+  <li>Wet Suit Size (include make/model if you know it) 
+  <%= text_field :trip_enrollment, :suit_size, :size => 5 -%>
+  </li>
+  </ul>
+</li>
+
+<li id='height-weight-form'> 
+  <ul>
+  <li>Height: <%= text_field :trip_enrollment, :height -%> </li>
+  <li>Weight: <%= text_field :trip_enrollment, :weight -%> </li>
+  </ul>
+</li>
+

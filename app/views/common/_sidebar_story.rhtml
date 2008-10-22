@@ -1,0 +1,12 @@
+
+<% case story.class.to_s -%>
+<% when 'SimpleStory' -%>
+  <li><%= story.sidebar_content ? story.sidebar_content : story.h2_content -%></li>
+<% when 'DynamicStory' -%>
+  <li><%= story.sidebar_content ? story.sidebar_content : story.css_id -%></li>  
+<% when 'Trip' -%>
+  <li><%= story.sidebar_content ? story.sidebar_content : story.title -%></li> 
+<% else -%>
+<% end -%>
+
+

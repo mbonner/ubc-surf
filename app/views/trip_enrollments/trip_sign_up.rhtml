@@ -1,0 +1,52 @@
+<head>
+  <%= javascript_include_tag "sign_up_form" -%>
+  <script language="JavaScript">
+  function initial_disable()
+  {
+    glove_size_input = document.getElementById('trip_enrollment_glove_size')
+    <% logger.debug("gloves: #{@trip_enrollment.gloves}") -%>
+    <% if @trip_enrollment.gloves -%>
+      <% logger.debug("\tsetting gloves size input disable to false, SO ENABLED") -%>
+      glove_size_input.disabled = false
+    <% else -%>
+      <% logger.debug("\tsetting gloves size input disable to true, SO disABLED") -%>
+      glove_size_input.disabled = true
+    <% end -%>
+    
+    booty_size_input = document.getElementById('trip_enrollment_booty_size')
+    shoe_size_type_input = document.getElementById('trip_enrollment_shoe_size_type')
+    <% logger.debug("booties: #{@trip_enrollment.booties}") -%>
+    <% if @trip_enrollment.booties -%>
+      <% logger.debug("\tsetting booties disable to false so ENABLEd") -%>
+      booty_size_input.disabled = false
+      shoe_size_type_input.disabled = false
+    <% else -%>
+      <% logger.debug("\tsetting booties disable to true so DISabled") -%>
+      booty_size_input.disabled = true
+      shoe_size_type_input.disabled = true
+    <% end -%>   
+    // may have to do all of the wet suit ones as well
+  }
+  window.onload=initial_disable;
+  </script>
+</head>
+
+<p style="color:red;">
+So this is our new trip sign up form, when i say new i mean <strong>NEW</strong> there are def. some bugs I need to work out, especially when you try to input your wet suit size or your weight, 
+just click on things until the appropriate box is enabled, if its never enabled, curse at me in the form, if you cant submit the form, curse at me through email.  
+<br />
+Either way, its a big help for us to get your info this way so if you could bear with us that would be super duper, I promise sometime in the near future it will work, and if AMS gets their act 
+together you will even be able to pay through paypal, woohoo. 
+</p>
+
+<h1>Trip Sign Up</h1>
+<h2>Details</h2>
+<p>cost: <%= @trip.cost -%> start: <%= @trip.start -%> end: <%= @trip.end -%> to: <%= @trip.location -%>
+</p>
+
+figure out why check boxes are not getting there values.
+
+<%# form_tag :action => :create do -%>
+<div id='trip-form'>
+<%= render :partial => 'create_form', :locals => {} -%>
+</div>

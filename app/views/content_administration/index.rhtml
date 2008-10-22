@@ -1,0 +1,10 @@
+<h2>Create/Edit/View Site Content</h2>
+<p></p>
+<ul>
+<li><%= link_to "Trips", :controller => :trip_admin -%></li>
+<li><%= link_to "Simple Story", :controller => :simple_story -%></li>
+<li><%= link_to "Dynamic Story", :controller => :dynamic_story -%></li>
+</ul>
+<p>
+  <a href=<%=h(logout_url)%> title="Log-out and remove the cookie from your machine">Log-out</a>
+</p>

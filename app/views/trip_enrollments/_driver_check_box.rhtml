@@ -1,0 +1,5 @@
+<li id="driver-check-box">
+<% options = {:onClick => remote_function(:url => {:action => action})} -%>  
+Can you drive? 
+<%= check_box(:trip_enrollment, :driver, options, 1, 0) -%>
+</li>

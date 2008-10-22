@@ -1,0 +1,41 @@
+<h3><%= trip.title -%></h3>
+<ul>
+<!-- <li><p><%#= trip.description -%></p></li> -->
+<li>
+Where we will meet: 
+<p><%= trip.meeting_location -%>
+</br>
+<%# trip.trip_meeting_location_map_link = trip.meeting_location_link -%>
+<%# trip.save -%>
+<%= link_to "Google Map", trip.trip_meeting_location_map_link, :popup => true -%>
+</p>
+</li>
+<%# trip.location_link = "http://www.longbeachgolfcourse.com/site/campground.html" -%>
+<%# trip.trip_location_map_link = 'http://maps.google.com/maps?f=q&hl=en&geocode=&q=49.08078,+-125.78393&ie=UTF8&ll=49.080725,-125.784016&spn=0.060266,0.178185&t=h&z=13&iwloc=addr' -%> 
+<%# trip.save -%>
+<li>Where we are going: 
+<p><%= trip.location -%> &nbsp <%= link_to "details", trip.location_link, :popup => true -%>
+</br>
+<%= link_to "Google Map", trip.trip_location_map_link, :popup => true -%>
+<%#= trip.embedded_location -%>
+<!--
+<iframe width="325" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=49.08078,-125.78393&amp;ie=UTF8&amp;ll=49.093316,-125.775604&amp;spn=0.060266,0.178185&amp;t=h&amp;z=13&amp;iwloc=addr&amp;output=embed&amp;s=AARTsJr5Z30HmHp0P1DsSUD-umDI7STfLQ"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=49.08078,-125.78393&amp;ie=UTF8&amp;ll=49.093316,-125.775604&amp;spn=0.060266,0.178185&amp;t=h&amp;z=13&amp;iwloc=addr&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+-->
+</p>
+</li>
+<% start_date_str = trip.start.strftime("%A, %B %d %I:%M %p") if trip.start -%>
+<% end_date_str = trip.end.strftime("%A, %B %d %I:%M %p") if trip.end -%>
+<li>From <%= start_date_str -%> to <%= end_date_str -%>
+</li>
+<li>How Much?: <%= trip.cost -%>(Not including rentals, approx. $40-50 for the weekend for a board, wetsuit, booties, gloves)
+<p>
+What do you get for all that money? cost of the ferry to/from the island, cost of accomadation, beer one night, food one night, good good good (one more? yes) good times.
+</p>
+</li>
+<br>
+<strong>
+YOU IN? <%= link_to "sign me up!", :controller => :trip_enrollments, :action => :new, :trip_id => trip.id, :payment_type => 'trip' -%>
+</strong>
+
+</ul>
+<%# end -%>

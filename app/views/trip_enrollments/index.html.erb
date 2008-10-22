@@ -1,0 +1,47 @@
+
+<h1>Trip Signups</h2>
+<table>
+<tr>
+  <th>#</th>
+  <th>invoice #</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Phone</th>
+  <th>Driver</th>
+  <th>Car Capacity</th>
+  <th>Rent</th>
+</tr>
+
+<% for trip_enrollment in @trip_enrollments %>
+  <% trip = trip_enrollment.trip -%>
+  <% logger.debug("trip id: #{trip_enrollment.trip_id}") -%>
+  <!-- <tr><h2><%= h(trip_enrollment.name) -%> - <%= h(trip.description) if trip_enrollment.trip_id -%></h2></tr> -->
+  <tr>
+    <td><%= h(trip_enrollment.id) -%></td>
+    <td><%= h(trip_enrollment.payment_id) -%></td>
+    <strong><td><%= h(trip_enrollment.name) -%></td></strong>
+    <td><%= h(trip_enrollment.email_address) -%></td>
+    <td><%= h(trip_enrollment.phone) -%></td>
+    <td><%= h(trip_enrollment.driver) -%></td>
+    <td><%= h(trip_enrollment.car_capacity) -%></td>
+    <td><%= h(trip_enrollment.rent) -%></td>
+  </tr>
+  <% if trip_enrollment.rent -%>
+    <tr>
+    <td>Board</td><td><%= h(trip_enrollment.board_type) -%></td>
+    <td>Suit</td><td><%= trip_enrollment.suit -%> - <%= trip_enrollment.suit_size -%> : <%= trip_enrollment.height -%>, <%= trip_enrollment.weight -%></td>
+    <td>Gloves</td><td><%= trip_enrollment.gloves -%> - <%= trip_enrollment.glove_size -%></td>
+    <td>Booties</td><td><%= trip_enrollment.booties -%> - <%= trip_enrollment.booty_size -%> - <%= trip_enrollment.shoe_size_type -%></td>
+    </tr>
+  <% end -%>
+  <% if trip && trip.camping -%>
+    <tr>
+    <td>Tent</td><td><%= h(trip_enrollment.tent) -%></td>
+    <td>Capacity</td><td><%= h(trip_enrollment.tent_capacity) -%></td>
+    <td>Tarp</td><td><%= h(trip_enrollment.tarp) -%></td>
+    <td>Stove</td><td><%= h(trip_enrollment.stove) -%></td>
+    </tr>
+  <% end -%>
+  <tr><table><tr><td>Notes:</td><td><%= h(trip_enrollment.notes) -%></td></tr><tr><td>&nbsp</td><td>&nbsp</td></tr></table></tr>
+<% end %>
+</table>

@@ -1,0 +1,12 @@
+    <% trip_enrollment = @trip_enrollments.first -%>
+    <% if trip_enrollment -%>
+      <% trip_enrollment.attributes.each do |k,v| -%>
+        <%= k.to_s + ',' -%>
+      <% end -%>
+    <% end -%>
+
+<% for trip_enrollment in @trip_enrollments %>
+    <% trip_enrollment.attributes.each do |k,v| -%>
+      <%= v.to_s + ',' -%>
+    <% end -%>
+<% end %>

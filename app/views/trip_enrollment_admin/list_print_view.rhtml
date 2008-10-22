@@ -1,0 +1,91 @@
+
+<% title = @records.first.trip ? @records.first.trip.title + " Sign Ups " : "unk" -%>
+<h2><%= title -%></h2>
+<h3><%= Time.now.strftime("%A, %B %d %I:%M %p")-%><h3>
+<br />
+<hr />
+<table align="center" border="0" cellpadding="5" cellspacing="5" width="100%">
+<tr>
+  <strong>
+  <th>#</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Phone</th>
+  <th>Car</th>
+  </strong>  
+</tr>
+<% i = 1 -%>
+<% for record in @records -%>
+  <tr>
+    <td style="text-align: left;"><%= i.to_s -%>.</td>
+    <% i += 1 -%>    
+    <td><%= record.name -%></td>
+    <td><%= record.email_address -%></td>
+    <td><%= number_to_phone(record.phone) -%></td>
+    <td>
+      <% if record.driver -%>
+        <%= record.car_capacity -%>
+      <% else -%>
+        -
+      <% end %>
+    </td>
+  </tr>
+  <% if record.rent -%>
+    <tr>
+      <td></td>
+      <td colspan="4">
+        <table align="center" border="0" cellpadding="2" cellspacing="2" width="100%">
+          <tr>
+            <strong>
+            <th>Board</th>
+            <th>Suit</th>
+            <th>Booties</th>
+            <th>Hoody</th>
+            <th>Gloves</th>
+            </strong>
+          </tr>
+          <tr>
+            <td><%= record.board_type -%></td>
+            <td>
+              <%= record.suit.to_s + " " + record.suit_size + " " + record.height + " " + record.weight -%>
+            </td>
+            <td>
+              <%= record.booties.to_s + " " + record.booty_size + " " + record.shoe_size_type -%>
+            </td>
+            <td><%= record.hoody.to_s -%></td>
+            <td><%= record.gloves.to_s + " " + record.glove_size -%></td>
+          </tr>
+        </table> 
+      </td>
+    </tr>
+  <% end -%>
+  <% if record.trip && record.trip.camping -%>
+    <tr>
+      <td></td>
+      <td colspan="4">
+        <table align="center" border="1" cellpadding="2" cellspacing="2" width="100%">
+          <tr>
+            <strong>
+            <th>Tent</th>
+            <th>Tarp</th>
+            <th>Stove</th>
+            </strong>
+          </tr>
+          <tr>
+            <td><%= record.tent ? record.tent_capacity : "-" -%></td>
+            <td><%= record.tarp -%></td>
+            <td><%= record.stove -%></td>
+          </tr>
+        </table> 
+      </td>      
+    </tr>
+  <% end -%>
+  <% if record.notes -%>
+  <tr>
+    <td>Notes:</td>
+    <td colspan="4"><%= record.notes -%></td>
+  </tr>
+  <% end -%>
+  <tr><td colspan="5">&nbsp &nbsp &nbsp </td></tr>
+<% end -%>
+</table>

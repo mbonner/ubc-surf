@@ -1,0 +1,69 @@
+  
+<% form_remote_tag :url => {:action => :create} do -%>
+
+<div id="trip_admin-create--messages" class="messages-container">
+<p>
+<%= error_messages_for 'trip_enrollment' -%>
+</p>
+</div>
+
+<li>Your Contact Info:<br />
+<table>
+<tr><td>First Name:</td><td><%= text_field :trip_enrollment, :first_name, :size => 10 -%></td></tr>
+<tr><td>Last Name:</td><td><%= text_field :trip_enrollment, :last_name, :size => 10 -%></td></tr>
+<tr><td>Phone#:</td><td><%= text_field :trip_enrollment, :phone, :size => 10 -%></td></tr>
+<tr><td>Email#:</td><td><%= text_field :trip_enrollment, :email_address, :size => 15 -%></td></tr>
+</table>
+</li>
+<br />
+<%#= check_box "all_vendor_select", "accepted", {:onChange =>remote_function(:url => {:action => :show_rental_form}, :with => "'name=' + $('all_vendor_select_accepted').value")}, 1, 0 -%>
+<%= render :partial => 'rental_check_box', :locals => {:action => :show_rental_form} -%>
+<%= render :partial => 'rental_form' -%>
+
+<% on_change_func = remote_function(:url => {:action => :show_driver_form}, 
+ :with => "{driver: Field.getValue(trip_enrollment_driver)}") -%>
+<% options = {:onclick => on_change_func} -%> 
+<%# options = {:onClick => "hide_show('trip_enrollment_driver')"} -%> 
+
+<%= render :partial => 'driver_check_box', :locals => {:action => :show_driver_form} -%>
+<li>  
+<li id='driver-form' style="display:none;">
+How many can you take (<strong><i>INCLUDING YOURSELF</i></strong>)? 
+<%= select :trip_enrollment, :car_capacity, (1..10) -%> (Note: Discount on trip cost for driving! woohoo, ask us how much usually $10-40ish, we will give it to you on the day of the trip)
+</li>
+</li>
+<% if @trip.camping -%>
+  <li>
+  <% on_change_func = remote_function(:url => {:action => :show_tent_form}, 
+   :with => "{rent: Field.getValue(trip_enrollment_tent)}") -%>
+  <% options = {:onclick => on_change_func} -%> 
+  Can you bring a tent? <%= check_box :trip_enrollment, :tent, options -%> 
+  </li>
+  <li>
+  <div id='tent-form' style="display:none;">
+  How many people can you fit (<strong><i>INCLUDING YOURSELF</i></strong>) 
+  <%= select :trip_enrollment, :tent_capacity, (1..50) -%> 
+  </div>
+  </li>
+  <li>
+  Can you bring a stove? <%= check_box :trip_enrollment, :stove -%>  
+  </li>
+  <li>
+  <div id='stove-form' style="display:none;">
+  </div>
+  </li>
+  <li>
+  Can you bring a tarp? <%= check_box @trip_enrollment, :tarp -%>  
+  </li>
+  <li>
+  <div id='tarp-form' style="display:none;">
+  </div>
+  </li>
+  <li>
+    <p>We will find you a place to sleep (in a tent) if you dont have one, if you do we expect you to share.  Yall are responsible for finding a sleeping bag, sleeping pad, camping chair (if you want one), PLUS!!! <strong><big>BRING A PLATE/BOWL and UTENSILS</big></strong></p>
+  </li>
+<% end -%>
+<li>Questions/Comments: <%= text_area(:trip_enrollment, :notes, :cols => 50, :rows => 10) -%></li>
+<input type="hidden" name="trip_enrollment[trip_id]" value="<%=@trip.id.to_s-%>" style="display:none;"/>
+<li><div><%= submit_tag 'Sign up' %></div></li>
+<% end -%>

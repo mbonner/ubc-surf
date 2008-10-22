@@ -1,0 +1,12 @@
+
+<div id="footer">
+  <div class="left"><a href="http://www.ubcsurf.com">ubcsurf</a></div>
+  <div class="right">
+    <% styl = logged_in? ? '' : 'color: #949490;' -%>
+    <% link_text = logged_in? ? "#{current_user.login}" : '+' -%>
+    <%= link_to link_text, '/content_administration', :style => styl -%> &nbsp
+    styled with <a href="http://templates.arcsin.se/">Dirtylicious</a>
+  </div>
+  <div class="clearer"></div>
+</div>
+

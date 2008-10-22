@@ -1,0 +1,23 @@
+
+<% if flash[:error] -%>
+  <p style="color: red;">
+  <strong><%= h(flash[:error]) -%></strong>
+  </p>
+<% end -%>
+<% if flash[:info] -%>
+  <p><small><%= h(flash[:info]) -%></small></p>
+<% end -%>
+
+<h2>Login with User ID and Password:</h2>
+<%# form_tag session_path do -%>
+<% form_tag session_path, :id => 'login-form' do %>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag 'login' -%></p>
+ 
+<p><label for="password">Password</label><br />
+<%= password_field_tag 'password' -%></p>
+ 
+<p><%= submit_tag 'Log in' -%></p>
+
+<% end -%>
+<p><%= link_to "UBC Surf Home", :controller => :home, :action => :index -%></p>

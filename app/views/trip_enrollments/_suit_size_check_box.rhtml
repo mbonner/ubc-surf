@@ -1,0 +1,6 @@
+
+<% on_change_func = remote_function(:url => {:action => action}) -%>
+<% suit_options = {:onclick => on_change_func} -%>
+<li id='suit-size-check-box'>
+  Know your wet suit size? <%= check_box :trip_enrollment, :know_suit_size, suit_options -%>
+</li>

@@ -1,0 +1,179 @@
+!SESSION 2008-08-24 10:40:07.775 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_13
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/michaelbonner/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -keyring /Users/michaelbonner/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.ui 4 4 2008-08-24 10:40:49.166
+!MESSAGE Unable to find Action Set: com.aptana.ide.server.ui.launchActionSet
+
+!ENTRY com.aptana.ide.intro 4 0 2008-08-24 10:41:07.022
+!MESSAGE (Build 1.1.6.009905) Feature store does not exist
+
+!ENTRY org.eclipse.osgi 2 1 2008-08-24 10:42:02.321
+!MESSAGE NLS unused message: AutomaticUpdatesPreferencePage_CUSTOMIZE_URLS in: com.aptana.ide.core.ui.update.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2008-08-24 10:42:02.322
+!MESSAGE NLS unused message: AutomaticUpdatesPreferencePage_LimitGeneric0 in: com.aptana.ide.core.ui.update.UpdateSchedulerResources
+
+!ENTRY org.eclipse.ui 4 4 2008-08-24 10:42:07.204
+!MESSAGE Unhandled event loop exception
+
+!ENTRY org.eclipse.ui 4 0 2008-08-24 10:42:07.205
+!MESSAGE Failed to execute runnable (java.lang.NullPointerException)
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:3563)
+	at org.eclipse.swt.SWT.error(SWT.java:3481)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:126)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3214)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2958)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:820)
+	at org.eclipse.jface.window.Window.open(Window.java:796)
+	at org.eclipse.update.internal.ui.wizards.ResizableInstallWizardDialog.open(ResizableInstallWizardDialog.java:59)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter.openInstallWizard2(UpdateJobChangeAdapter.java:275)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter.access$4(UpdateJobChangeAdapter.java:263)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter$4.run(UpdateJobChangeAdapter.java:210)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter.asyncNotifyUser(UpdateJobChangeAdapter.java:206)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter.access$3(UpdateJobChangeAdapter.java:169)
+	at com.aptana.ide.core.ui.update.UpdateJobChangeAdapter$2.runInUIThread(UpdateJobChangeAdapter.java:119)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:94)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:123)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3214)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2958)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:820)
+	at org.eclipse.jface.window.Window.open(Window.java:796)
+	at org.eclipse.jface.dialogs.MessageDialog.openInformation(MessageDialog.java:346)
+	at com.mbartl.viplugineclipse.LoadViAction.load(LoadViAction.java:64)
+	at com.mbartl.viplugineclipse.LoadOnStartup$1.run(LoadOnStartup.java:28)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:123)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3214)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2958)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1930)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1894)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:422)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at com.aptana.ide.rcp.AbstractIDEApplication.run(AbstractIDEApplication.java:116)
+	at com.aptana.ide.rcp.Application.run(Application.java:43)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.update.internal.ui.wizards.ReviewPage$TreeContentProvider.getParent(ReviewPage.java:181)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1448)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:858)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1375)
+	at org.eclipse.jface.viewers.CheckboxTreeViewer.setCheckedElements(CheckboxTreeViewer.java:436)
+	at org.eclipse.update.internal.ui.wizards.ContainerCheckedTreeViewer.setCheckedElements(ContainerCheckedTreeViewer.java:155)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage.selectTrueUpdates(ReviewPage.java:567)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage.access$10(ReviewPage.java:560)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage$2.run(ReviewPage.java:540)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage.performPostSearchProcessing(ReviewPage.java:534)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage.access$8(ReviewPage.java:533)
+	at org.eclipse.update.internal.ui.wizards.ReviewPage$1.run(ReviewPage.java:527)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:123)
+	... 45 more
+!SESSION 2008-08-24 11:01:39.782 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_13
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/michaelbonner/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -keyring /Users/michaelbonner/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2008-08-24 11:02:10.965
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -r rubygems -e p(Gem.path) -I "/Applications/Aptana Studio/plugins/org.rubypeople.rdt.launching_1.0.3.200807071913NGT/ruby/flush" -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2008-08-24 11:02:11.608
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I "/Applications/Aptana Studio/plugins/org.rubypeople.rdt.launching_1.0.3.200807071913NGT/ruby/flush" -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem sources -l
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2008-08-24 11:02:11.628
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I "/Applications/Aptana Studio/plugins/org.rubypeople.rdt.launching_1.0.3.200807071913NGT/ruby/flush" -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem -v
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2008-08-24 11:02:12.045
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I "/Applications/Aptana Studio/plugins/org.rubypeople.rdt.launching_1.0.3.200807071913NGT/ruby/flush" -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem query -d
+
+!ENTRY org.radrails.rails.core 4 0 2008-08-24 11:04:10.729
+!MESSAGE Error running the server command
+!STACK 1
+org.eclipse.core.runtime.CoreException: File to launch does not exist: script/server
+	at org.rubypeople.rdt.launching.AbstractRubyLaunchConfigurationDelegate.abort(AbstractRubyLaunchConfigurationDelegate.java:47)
+	at org.rubypeople.rdt.launching.AbstractRubyLaunchConfigurationDelegate.verifyFileToLaunch(AbstractRubyLaunchConfigurationDelegate.java:393)
+	at org.rubypeople.rdt.launching.RubyLaunchDelegate.launch(RubyLaunchDelegate.java:50)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:639)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:565)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:558)
+	at org.radrails.server.core.Server.startServer(Server.java:581)
+	at org.radrails.server.core.Server.access$2(Server.java:561)
+	at org.radrails.server.core.Server$8.run(Server.java:918)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+!SUBENTRY 1 org.rubypeople.rdt.launching 4 101 2008-08-24 11:04:10.730
+!MESSAGE File to launch does not exist: script/server
+
+!ENTRY org.radrails.rails.core 4 0 2008-08-24 11:04:16.178
+!MESSAGE Error running the server command
+!STACK 1
+org.eclipse.core.runtime.CoreException: File to launch does not exist: script/server
+	at org.rubypeople.rdt.launching.AbstractRubyLaunchConfigurationDelegate.abort(AbstractRubyLaunchConfigurationDelegate.java:47)
+	at org.rubypeople.rdt.launching.AbstractRubyLaunchConfigurationDelegate.verifyFileToLaunch(AbstractRubyLaunchConfigurationDelegate.java:393)
+	at org.rubypeople.rdt.launching.RubyLaunchDelegate.launch(RubyLaunchDelegate.java:50)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:639)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:565)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:558)
+	at org.radrails.server.core.Server.startServer(Server.java:581)
+	at org.radrails.server.core.Server.access$2(Server.java:561)
+	at org.radrails.server.core.Server$8.run(Server.java:918)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+!SUBENTRY 1 org.rubypeople.rdt.launching 4 101 2008-08-24 11:04:16.178
+!MESSAGE File to launch does not exist: script/server
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2008-08-24 11:04:24.756
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -e p(Process.pid.to_s) -e load(ARGV.shift) -I "/Applications/Aptana Studio/plugins/org.rubypeople.rdt.launching_1.0.3.200807071913NGT/ruby/flush" -rrdt_stream_sync.rb -- /usr/bin/mongrel_rails start --port=3001 --environment=development --address=127.0.0.1
+
+!ENTRY com.aptana.ide.core 4 0 2008-08-24 11:04:44.416
+!MESSAGE (Build 1.1.7.015414) An error occurred while shutting down the database
+!STACK 0
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getConnection(DriverManager.java:545)
+	at java.sql.DriverManager.getConnection(DriverManager.java:193)
+	at com.aptana.ide.core.db.AptanaDB.shutdown(AptanaDB.java:320)
+	at com.aptana.ide.core.AptanaCorePlugin.stop(AptanaCorePlugin.java:89)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$3.run(BundleContextImpl.java:1032)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:1028)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:396)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.stop(AbstractBundle.java:400)
+	at org.eclipse.core.runtime.internal.adaptor.BundleStopper.basicStopBundles(BundleStopper.java:86)
+	at org.eclipse.core.runtime.internal.adaptor.BundleStopper.stopBundles(BundleStopper.java:73)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAdaptorHook.frameworkStopping(EclipseAdaptorHook.java:156)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.frameworkStopping(BaseAdaptor.java:288)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:538)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:449)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:423)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)

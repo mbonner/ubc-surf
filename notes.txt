@@ -1,0 +1,19 @@
+
+add users
+add hidden link to home page to login
+add overlay w/ display none
+make link rjs action to show div
+
+add links to home page if logged in
+trips thats about it maybe, payments, trip enrollments
+
+add active scaffold
+make controllers for as for each thinger
+
+modify form to display validation errors
+
+change link to.. what was this?
+
+add a stories table, add as interface 
+
+

@@ -1,0 +1,154 @@
+
+*** LOCAL GEMS ***
+
+actionmailer (2.0.2, 1.3.6, 1.3.4, 1.3.3)
+    Service layer for easy email delivery and testing.
+
+actionpack (2.0.2, 1.13.6, 1.13.4, 1.13.3)
+    Web-flow and rendering framework putting the VC in MVC.
+
+actionwebservice (1.2.6, 1.2.4, 1.2.3)
+    Web service support for Action Pack.
+
+activerecord (2.0.2, 1.15.6, 1.15.4, 1.15.3)
+    Implements the ActiveRecord pattern for ORM.
+
+activeresource (2.0.2)
+    Think Active Record for web resources.
+
+activesupport (2.0.2, 1.4.4, 1.4.3, 1.4.2)
+    Support and utility classes used by the Rails framework.
+
+acts_as_ferret (0.4.1)
+    acts_as_ferret - Ferret based full text search for any ActiveRecord
+    model
+
+capistrano (2.1.0, 2.0.0)
+    Capistrano is a utility and framework for executing commands in
+    parallel on multiple remote machines, via SSH.
+
+cgi_multipart_eof_fix (2.2)
+    Fix an exploitable bug in CGI multipart parsing which affects Ruby
+    <= 1.8.5 when multipart boundary attribute contains a non-halting
+    regular expression string.
+
+daemons (1.0.7)
+    A toolkit to create and control daemons in different ways
+
+dnssd (0.6.0)
+    DNS Service Discovery (aka Rendezvous) API for Ruby
+
+fastthread (1.0)
+    Optimized replacement for thread.rb primitives
+
+fcgi (0.8.7)
+    FastCGI library for Ruby.
+
+ferret (0.11.4)
+    Ruby indexing library.
+
+gem_plugin (0.2.2)
+    A plugin system based only on rubygems that uses dependencies only
+
+goldberg_generator (0.2.1)
+    Web application framework for Ruby on Rails with integrated
+    security, content management, and site navigation.
+
+highline (1.2.9)
+    HighLine is a high-level command-line IO library.
+
+hobo (0.7.1)
+    The web app builder for Rails
+
+hoe (1.4.0)
+    Hoe is a way to write Rakefiles much easier and cleaner.
+
+hpricot (0.6)
+    a swift, liberal HTML parser with a fantastic library
+
+libxml-ruby (0.3.8.4)
+    LibXML2 bindings for Ruby
+
+loaded_plugins (0.1.2)
+    Adds Rails.plugins, a list all of the plugins that Rails has loaded
+
+money (1.7.1)
+    Class aiding in the handling of Money.
+
+mongrel (1.0.1)
+    A small fast HTTP library and server that runs Rails, Camping, Nitro
+    and Iowa apps.
+
+needle (1.3.0)
+    Needle is a Dependency Injection/Inversion of Control container for
+    Ruby. It supports both type-2 (setter) and type-3 (constructor)
+    injection. It takes advantage of the dynamic nature of Ruby to
+    provide a rich and flexible approach to injecting dependencies.
+
+net-sftp (1.1.0)
+    Net::SFTP is a pure-Ruby implementation of the SFTP client protocol.
+
+net-ssh (1.1.2)
+    Net::SSH is a pure-Ruby implementation of the SSH2 client protocol.
+
+paginator (1.1.0)
+    A generic paginator object for use in any Ruby program
+
+plugin_migrations (0.1.2)
+    Adds support for plugin-based migrations
+
+rails (2.0.2, 1.2.6, 1.2.4, 1.2.3)
+    Web-application framework with template engine, control-flow layer,
+    and ORM.
+
+rake (0.8.1, 0.7.3)
+    Ruby based make-like utility.
+
+RedCloth (3.0.4)
+    RedCloth is a module for using Textile and Markdown in Ruby. Textile
+    and Markdown are text formats.  A very simple text format. Another
+    stab at making readable text that can be converted to HTML.
+
+rmagick (2.1.0)
+    Ruby binding to ImageMagick
+
+ruby-debug-base (0.10.0)
+    Fast Ruby debugger - core component
+
+ruby-debug-ide (0.1.10, 0.1.9)
+    IDE interface for ruby-debug.
+
+ruby-openid (1.1.4)
+    A library for consuming and serving OpenID identities.
+
+ruby-prof (0.6.0)
+    Fast Ruby profiler
+
+ruby-yadis (0.3.4)
+    A library for performing Yadis service discovery
+
+rubyforge (0.4.4)
+    A script which automates a limited set of rubyforge operations.
+
+rubynode (0.1.3)
+    RubyNode is a library that allows read only access to Ruby's
+    internal NODE structure.
+
+sources (0.0.1)
+    This package provides download sources for remote gem installation
+
+sqlite3-ruby (1.2.1)
+    SQLite3/Ruby is a module to allow Ruby scripts to interface with a
+    SQLite3 database.
+
+termios (0.9.4)
+    Termios module are simple wrapper for termios(3). It can be included
+    into IO-family classes and can extend IO-family objects. In
+    addition, the methods can use as module function.
+
+xml-simple (1.0.11)
+    A very simple API for XML processing.
+
+ym4r (0.6.1)
+    Helping the use of Google Maps and Yahoo! Maps API's from Ruby and
+    Rails

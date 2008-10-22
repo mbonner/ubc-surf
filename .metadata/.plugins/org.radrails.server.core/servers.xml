@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server-manager>
+<server type="Mongrel">
+<project>/Users/michaelbonner/Development/surf_club/www.ubcsurf.com/www.ubcsurf.com</project>
+<name>www.ubcsurf.comServer</name>
+<host>127.0.0.1</host>
+<port>3001</port>
+<environment>development</environment>
+<runMode>run</runMode>
+</server>
+<server type="WEBrick">
+<project>/Users/michaelbonner/Development/surf_club/www.ubcsurf.com/www.ubcsurf.com</project>
+<name>www.ubcsurf.comServer</name>
+<host>127.0.0.1</host>
+<port>3000</port>
+<environment>development</environment>
+<runMode>run</runMode>
+</server>
+</server-manager>

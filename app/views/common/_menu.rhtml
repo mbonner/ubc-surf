@@ -1,0 +1,24 @@
+<div class="path">
+  <ul>
+    <li class="page_item current_page_item">
+    <%#= link_to_remote "Home", :url => {:action => :show, :content => :home} -%>
+    <%= link_to "Home", :controller => :content, :action => :show, :content => :home -%>
+    </li>
+    <li class="page_item">
+    <%#= link_to_remote "About", :url => {:action => :show, :content => :about} -%>
+    <%= link_to "About", :controller => :content, :action => :show, :content => :about -%>
+    </li>
+    <li class="page_item">
+    <%#= link_to_remote "Trips", :url => {:action => :show, :content => :trips} -%>
+    <%= link_to "Trips", :controller => :content, :action => :show, :content => :trips -%>
+    </li>
+    <li class="page_item">
+    <%#= link_to_remote "Sponsors", :url => {:action => :show, :content => :sponsors} -%>
+    <%= link_to "Sponsors", :controller => :content, :action => :show, :content => :sponsors -%>
+    </li>
+    <li class="page_item">
+    <%#= link_to_remote "Resources", :url => {:action => :show, :content => :resources} -%>
+    <%= link_to "Resources", :controller => :content, :action => :show, :content => :resources -%>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,6 @@
+
+<li id="rental-check-box">
+<% options = {:onClick => remote_function(:url => {:action => action})} -%> 
+ 
+Do you need to rent? <%= check_box("trip_enrollment", "rent", options, 1, 0) -%> 
+</li>

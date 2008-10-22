@@ -1,0 +1,12 @@
+<h1>Editing payment</h1>
+
+<%= error_messages_for :payment %>
+
+<% form_for(@payment) do |f| %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @payment %> |
+<%= link_to 'Back', payments_path %>

@@ -1,0 +1,52 @@
+
+<p style="color:red;">
+Online payment is a test program for AMS its not available yet for the surf club.  Hopefully it will happen soon, until then you have to come to club days in the SUB or drop by the office sometime to sign up, check out the about page for directions on getting to the office.
+</p>
+<% payment_service_for @payment.id, PAYPAL_ACCOUNT, 
+  :amount => "25.00", :currency => 'CAD',
+  #:amount => @enrollment.course.deposit, :currency => 'USD',
+  :service => :paypal do |service| 
+
+  # no customer info. 
+  #service.customer :first_name => @enrollment.student.first_name,
+  service.customer :first_name => 'Mike', 
+  #:last_name => @enrollment.student.last_name,
+  :last_name => 'Bonner', 
+  #:phone => @enrollment.student.phone,
+  #:phone => "6047298444",
+  :email => 'bonner_1218667711_per@gmail.com'
+
+  #service.billing_address :city => @enrollment.student.city,
+  #:address1 => @enrollment.student.street,
+  #:state => @enrollment.student.state,
+  #:country => 'USA',
+  #:zip => @enrollment.student.zip
+
+  #service.item_name "#{@enrollment.course.program} Deposit"
+  service.item_name "UBC Surf Club Membership dues."
+  #service.invoice @enrollment.invoice.id
+  service.invoice @payment.id
+  service.tax '0.00'
+  service.notify_url url_for(:only_path => false, :controller => :payments, :action => 'notify')
+  # ?? 
+  #service.return_url url_for(:only_path => false,
+  # :controller => 'payments', :action => 'thank_you')
+  # ?? is this, @ paypal if you hit cancel
+  #service.cancel_return_url url_for(:only_path => false,
+  # :controller => 'payments', :action => 'payment_error') 
+-%>
+
+  <!-- display payment summary here -->
+  <p>
+  Awesome, so you want to joing the raddest rootin tootenest club this side of the sub, congratulations... Membership dues are $25,   
+  your probably wondering what you get for all that money, well let me tell you:
+  <ul>
+  <li>We offer four or five trips to tofino a year, a couple westport trips and one reading break trip.  Open to members only.</li>
+  <li>We have a sweet long list of sponsours, check em out <%= link_to "here", :controller => :content, :action => :show, :content => 'sponsors' -%></li>
+  <li>Discounts at our social events, cheap entry and cheap beverages, woohoo</li>
+  <li>Shwag, our sponsors have given us tons of stuff to give away to you guys, look for it at our events</li>
+  </ul>
+  </p>
+  <%#= submit_tag 'Pay Membership Dues' %>
+
+<% end %>
