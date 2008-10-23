@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081020224841) do
+ActiveRecord::Schema.define(:version => 20081022193407) do
 
   create_table "dynamic_stories", :force => true do |t|
     t.string   "css_id"
@@ -92,6 +92,17 @@ ActiveRecord::Schema.define(:version => 20081020224841) do
     t.string   "status"
     t.string   "test"
     t.boolean  "received"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rentables", :force => true do |t|
+    t.string   "title"
+    t.text     "details"
+    t.text     "comments"
+    t.boolean  "available"
+    t.datetime "out_date_time"
+    t.datetime "in_date_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

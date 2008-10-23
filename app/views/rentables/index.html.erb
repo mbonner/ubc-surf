@@ -1,18 +1,33 @@
-<h1>Listing rentables</h1>
-
-<table>
-  <tr>
-  </tr>
-
+<h1>Quiver</h1>
+<hr />
+<p>
+</p>
 <% for rentable in @rentables %>
-  <tr>
-    <td><%= link_to 'Show', rentable %></td>
-    <td><%= link_to 'Edit', edit_rentable_path(rentable) %></td>
-    <td><%= link_to 'Destroy', rentable, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <dl>
+  <dt>
+  <h3><%= rentable.title -%></h3>
+  </dt>
+  <dd>
+    <%= image_tag(rentable.image.public_filename) -%>
+    <p>
+      <dd><%= rentable.details -%></dd>
+    </p>
+    <p>
+      <%= rentable.comments -%>
+    </p>
+    <% if logged_in? -%>
+      <ul>
+      <li><%= link_to 'Show', rentable %></li>
+      <li><%= link_to 'Edit', edit_rentable_path(rentable) %></li>
+      <li><%= link_to 'Destroy', rentable, :confirm => 'Are you sure?', :method => :delete %></li>
+      </ul>
+    <% end -%>
+  </dd>
+  </dl>
+  <hr />
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New rentable', new_rentable_path %>
+<%= link_to 'New rentable', new_rentable_path -%>

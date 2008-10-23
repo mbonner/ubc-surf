@@ -1,4 +1,8 @@
 class RentablesController < ApplicationController
+  layout "ubcsurf_default_layout"
+
+  before_filter :login_required  
+  
   # GET /rentables
   # GET /rentables.xml
   def index
@@ -25,6 +29,7 @@ class RentablesController < ApplicationController
   # GET /rentables/new.xml
   def new
     @rentable = Rentable.new
+    @image = Image.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,10 +45,21 @@ class RentablesController < ApplicationController
   # POST /rentables
   # POST /rentables.xml
   def create
+    write_params "Rentables::create", params
+    write_params "Rentable::create, rentable", params[:rentable]
+    write_params "Rentable::create, rentable", params[:image]
+    logger.debug('Here')
+    params.each do |k,v|
+      logger.debug("Rentable::create param: #{k} #{v} #{v.class}")
+    end
+    logger.debug('\n')
     @rentable = Rentable.new(params[:rentable])
-
+    @image = Image.new(params[:image])
+    # @image.owner = @rentable
+    @rentable.image = @image
+    
     respond_to do |format|
-      if @rentable.save
+      if @rentable.save && @image.save
         flash[:notice] = 'Rentable was successfully created.'
         format.html { redirect_to(@rentable) }
         format.xml  { render :xml => @rentable, :status => :created, :location => @rentable }
@@ -58,9 +74,13 @@ class RentablesController < ApplicationController
   # PUT /rentables/1.xml
   def update
     @rentable = Rentable.find(params[:id])
-
+    if @rentable.image
+      @image = @rentable.image
+    else
+      @image = Image.new(params[:image])
+    end
     respond_to do |format|
-      if @rentable.update_attributes(params[:rentable])
+      if @rentable.update_attributes(params[:rentable]) && @image.update_attributes(params[:image])
         flash[:notice] = 'Rentable was successfully updated.'
         format.html { redirect_to(@rentable) }
         format.xml  { head :ok }
