@@ -1,17 +1,23 @@
 <h1>Quiver</h1>
-<hr />
 <p>
+<strong>Is your quiver thin?</strong>Are the waves small and mushy and you only have yourself a tiny shortboard? Are the waves huge and you only have a longboard or maybe you would like to try a shorter board? <br />
+Well the ol' UBC Surf clubs got your back, we have a selection of boards available for members to rent.  Standard rules apply: you break it you buy it, you damage it you pay to fix it, you dont return it in a timely fashion.. well you've been renting it all of that time and you owe us some money.  Generally the cost to rent a board is $15 per weekend.  You want it for 5 days or something, well that will be $15 too, we just want it back in time for the next weekend so another member can rent the sucker.  If you dont bring it back in time for that to happen, well then you have just rented the board for another weekend. Deposits required to rent all boards. 
 </p>
 <% for rentable in @rentables %>
   <dl>
   <dt>
-  <h3><%= rentable.title -%></h3>
+  <hr />
+  <h2><%= rentable.title -%></h2>
+  <hr />
   </dt>
   <dd>
+    <br />
     <%= image_tag(rentable.image.public_filename) -%>
+    <br />
     <p>
-      <dd><%= rentable.details -%></dd>
+      <strong><%= rentable.details -%></strong>
     </p>
+    <br />
     <p>
       <%= rentable.comments -%>
     </p>
@@ -24,7 +30,6 @@
     <% end -%>
   </dd>
   </dl>
-  <hr />
 <% end %>
 </table>
 
