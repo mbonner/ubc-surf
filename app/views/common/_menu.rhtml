@@ -20,5 +20,13 @@
     <%#= link_to_remote "Resources", :url => {:action => :show, :content => :resources} -%>
     <%= link_to "Resources", :controller => :content, :action => :show, :content => :resources -%>
     </li>
+    <li class="page_item">
+    <%= link_to "Quiver", :controller => :rentables -%>
+    </li>
+    <% if logged_in? -%>
+      <li class="page_item">
+      <%= link_to "Admin", :controller => :content_administration -%>
+      </li>
+    <% end -%>
   </ul>
 </div>

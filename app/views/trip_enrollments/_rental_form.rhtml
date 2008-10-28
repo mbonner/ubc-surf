@@ -8,12 +8,12 @@
   <li>Board Type: <%= select(:trip_enrollment, :board_type, ['short', 'long', 'fun/hybrid'], :include_blank => 'No board') -%></li>
   <li id='suit-check-box'>
   Need a wet suit? 
-  <%= check_box :trip_enrollment, :suit, :onClick => "enable_elements(['trip_enrollment_know_suit_size', 'trip_enrollment_suit_size', 'trip_enrollment_weight', 'trip_enrollment_height'])" -%>
+  <%= check_box :trip_enrollment, :suit, :onClick => "enable_elements(['trip_enrollment_suit_size', 'trip_enrollment_weight', 'trip_enrollment_height'])" -%>
   </li>
-  <%= render :partial => 'suit_size_check_box', :locals => {:action => :show_suit_form} -%> 
+  <%#= render :partial => 'suit_size_check_box', :locals => {:action => :show_suit_form} -%> 
   <%= render :partial => 'suit_size_form' -%> 
 
-  <% options = {:onclick => "enable_element(\"trip_enrollment_glove_size\")"} -%>
+  <% options = {:onClick => "enable_element(\"trip_enrollment_glove_size\")"} -%>
   <li>Need gloves? <%= check_box(:trip_enrollment, :gloves, options) -%> </li> 
   <li>Glove size: 
   <%= select :trip_enrollment, :glove_size, glove_sizes, :include_blank => 'Select a glove size' -%> </li>

@@ -1,7 +1,7 @@
 class RentablesController < ApplicationController
   layout "ubcsurf_default_layout"
 
-  before_filter :login_required  
+  before_filter :login_required, :except => [:index]
   
   # GET /rentables
   # GET /rentables.xml

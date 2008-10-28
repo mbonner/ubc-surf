@@ -11,7 +11,7 @@ class Trip < ActiveRecord::Base
   validates_presence_of :cost
 
   def sort_date
-    return self.end
+    return self.start
   end
     
   def self.create_first_trip

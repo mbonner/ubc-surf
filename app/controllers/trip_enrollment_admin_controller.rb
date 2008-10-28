@@ -41,11 +41,16 @@ class TripEnrollmentAdminController < ApplicationController
     config.action_links.add :list_print_view
     config.action_links[:list_print_view].label = 'Printable List'
     config.action_links[:list_print_view].type = :table
-    # config.action_links[:list_print_view].method = :post
     config.action_links[:list_print_view].inline = false
     config.action_links[:list_print_view].page = true 
-    config.action_links[:list_print_view].popup = true 
-    # config.action_links[:list_print_view].position = false    
+    config.action_links[:list_print_view].popup = true   
+    
+    config.action_links.add :drivers_print_view
+    config.action_links[:drivers_print_view].label = 'Driver List'
+    config.action_links[:drivers_print_view].type = :table
+    config.action_links[:drivers_print_view].inline = false
+    config.action_links[:drivers_print_view].page = true 
+    config.action_links[:drivers_print_view].popup = true
   end  
   
   def list_print_view
@@ -54,5 +59,19 @@ class TripEnrollmentAdminController < ApplicationController
     # render params.merge(:action => :list), :layout => 'print_view'
     # render params.merge(:action => :list, :layout => "print_view")
     render params.merge(:action => 'list_print_view.rhtml', :layout => "print_view")
+  end
+  def drivers_print_view
+    write_params params, "list_print_view"
+    do_list
+    @num_people = @records.length
+    @car_capacity = 0
+    for record in @records
+      if record.driver 
+        @car_capacity += record.car_capacity
+      end
+    end
+    render params.merge(:action => 'drivers_print_view.rhtml', :layout => "print_view")    
+  end
+  def renters_print_view
   end
 end

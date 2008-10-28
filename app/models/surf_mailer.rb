@@ -9,10 +9,10 @@ class SurfMailer < ActionMailer::Base
   end
 
   def trip_enrollment_submitted(trip_enrollment, sent_at = Time.now)
-    @subject    = 'SurfMailer#trip_enrollment_submitted'
+    @subject    = "#{trip_enrollment.trip.title} - #{trip_enrollment.name} - Sign up"
     @recipients = trip_enrollment.email_address
-    @bcc        = 'ubcsurf@gmail.com'
-    @from       = 'ubcsurf@gmail.com'
+    @bcc        = 'ubcsurfclub@gmail.com'
+    @from       = 'ubcsurfclub@gmail.com'
     @sent_on    = sent_at
     @body       = {:trip => trip_enrollment.trip, :trip_enrollment => trip_enrollment}
   end

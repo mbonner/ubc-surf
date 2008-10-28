@@ -34,5 +34,6 @@ Well the ol' UBC Surf clubs got your back, we have a selection of boards availab
 </table>
 
 <br />
-
+<% if logged_in? -%>
 <%= link_to 'New rentable', new_rentable_path -%>
+<% end -%>
