@@ -48,13 +48,33 @@
           <tr>
             <td><%= record.board_type -%></td>
             <td>
-              <%= record.suit.to_s + " " + record.suit_size + " " + record.height + " " + record.weight -%>
+              <% 
+              suit_string = ""
+              suit_string += record.suit.to_s if record.suit
+              suit_string += " - " + record.suit_size if record.suit_size
+              suit_string += " - " + record.height if record.height
+              suit_string += " - " + record.weight if record.weight
+              %>
+              <%= suit_string -%>
             </td>
             <td>
-              <%= record.booties.to_s + " " + record.booty_size + " " + record.shoe_size_type -%>
+              <% 
+              booty_string = ""
+              booty_string += record.booties.to_s if record.booties
+              booty_string += " - " + record.booty_size if record.booty_size
+              booty_string += " - " + record.shoe_size_type if record.shoe_size_type
+              %>
+              <%= booty_string -%>
             </td>
-            <td><%= record.hoody.to_s -%></td>
-            <td><%= record.gloves.to_s + " " + record.glove_size -%></td>
+            <td><%= record.hoody ? record.hoody.to_s : "" -%></td>
+            <td>
+              <% 
+              gloves_string = ""
+              gloves_string += record.gloves.to_s if record.gloves
+              gloves_string += " - " + record.glove_size if record.glove_size
+              %>
+              <%= gloves_string -%>
+            </td>
           </tr>
         </table> 
       </td>

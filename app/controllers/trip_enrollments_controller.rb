@@ -55,12 +55,9 @@ class TripEnrollmentsController < ApplicationController
   # POST /trip_enrollments
   # POST /trip_enrollments.xml
   def create
+    write_params "TripEnrollment::create", params
     @trip_enrollment = TripEnrollment.new(params[:trip_enrollment])
     @trip = @trip_enrollment.trip
-    # if params.has_key?(:trip_id)
-    #   @trip = Trip.find(params[:trip_id])
-    #   @trip_cost = @trip.cost
-    # end
 
     respond_to do |format|
       if @trip_enrollment.save
@@ -75,7 +72,7 @@ class TripEnrollmentsController < ApplicationController
         format.xml  { render :xml => @trip_enrollment, :status => :created, :location => @trip_enrollment }
         format.js {
           render :update do |page|
-            page.replace 'trip-form', :partial => 'sign_up_confirmation' 
+            page.replace_html 'trip-form', :partial => 'sign_up_confirmation' 
           end
         }
       else

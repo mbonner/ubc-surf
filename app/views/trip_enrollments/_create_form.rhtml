@@ -65,5 +65,5 @@ How many can you take (<strong><i>INCLUDING YOURSELF</i></strong>)?
 <% end -%>
 <li>Questions/Comments: <%= text_area(:trip_enrollment, :notes, :cols => 50, :rows => 10) -%></li>
 <input type="hidden" name="trip_enrollment[trip_id]" value="<%=@trip.id.to_s-%>" style="display:none;"/>
-<li><div><%= submit_tag 'Sign up' %></div></li>
+<li><div><%= submit_tag 'Sign up' %></div>This may take a second, be patient, dont go hitting the button a million times (please).</li>
 <% end -%>

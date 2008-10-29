@@ -46,11 +46,18 @@ class TripEnrollmentAdminController < ApplicationController
     config.action_links[:list_print_view].popup = true   
     
     config.action_links.add :drivers_print_view
-    config.action_links[:drivers_print_view].label = 'Driver List'
+    config.action_links[:drivers_print_view].label = 'Drivers'
     config.action_links[:drivers_print_view].type = :table
     config.action_links[:drivers_print_view].inline = false
     config.action_links[:drivers_print_view].page = true 
     config.action_links[:drivers_print_view].popup = true
+    
+    config.action_links.add :renters_print_view
+    config.action_links[:renters_print_view].label = 'Renters'
+    config.action_links[:renters_print_view].type = :table
+    config.action_links[:renters_print_view].inline = false
+    config.action_links[:renters_print_view].page = true 
+    config.action_links[:renters_print_view].popup = true    
   end  
   
   def list_print_view
@@ -73,5 +80,7 @@ class TripEnrollmentAdminController < ApplicationController
     render params.merge(:action => 'drivers_print_view.rhtml', :layout => "print_view")    
   end
   def renters_print_view
+    do_list
+    render params.merge(:action => 'renters_print_view.rhtml', :layout => "print_view") 
   end
 end

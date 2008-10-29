@@ -25,7 +25,19 @@
       booty_size_input.disabled = true
       shoe_size_type_input.disabled = true
     <% end -%>   
-    // may have to do all of the wet suit ones as well
+    
+    suit_size_input = document.getElementById('trip_enrollment_suit_size')
+    weight_input = document.getElementById('trip_enrollment_weight') 
+    height_input = document.getElementById('trip_enrollment_height')
+    <% if @trip_enrollment.suit -%>
+      suit_size_input.disabled = false
+      weight_input.disabled = false
+      height_input.disabled = false
+    <% else -%>
+      suit_size_input.disabled = true
+      weight_input.disabled = true
+      height_input.disabled = true
+    <% end -%>
   }
   window.onload=initial_disable;
   </script>

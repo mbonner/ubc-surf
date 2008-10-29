@@ -1,0 +1,98 @@
+
+<% title = @records.first.trip ? @records.first.trip.title + " Renters " : "unk" -%>
+<h2><%= title -%></h2>
+<h3><%= Time.now.strftime("%A, %B %d %I:%M %p")-%><h3>
+<br />
+<hr />
+<% 
+num_people_with_boards = 0
+num_people_with_suits = 0
+num_people_with_booties = 0
+num_people_with_gloves = 0
+num_people_with_hoodies = 0
+%>
+<table align="center" border="0" cellpadding="5" cellspacing="5" width="100%">
+<tr>
+  <strong>
+  <th>#</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Phone</th>              
+  <th>Board</th>
+  <th>Suit</th>
+  <th>Booties</th>
+  <th>Hoody</th>
+  <th>Gloves</th>
+  </strong>  
+</tr>
+<tr><td colspan="9"><hr /></td></tr>
+<% i = 1 -%>
+<% for record in @records -%>
+  <% next if !record.rent -%>
+  <% i += 1 -%>
+  <% if record.board_type -%>
+    <% num_people_with_boards = 0 -%>
+  <% end -%>
+  <% if record.suit == true || record.suit_size || (record.height && record.weight) -%>
+    <% num_people_with_suits += 1 -%>
+  <% end -%>
+  <% if record.booties == true || record.booty_size -%>
+    <% num_people_with_booties += 1 -%>
+  <% end -%>  
+  <% if record.hoody == true -%>
+    <% num_people_with_hoodies += 1 -%>
+  <% end -%> 
+  <% if record.gloves == true || record.glove_size -%>
+    <% num_people_with_gloves += 1 -%>
+  <% end -%> 
+  <tr>
+    <td><%= record.name -%></td>
+    <td><%= record.email_address -%></td>
+    <td><%= number_to_phone(record.phone) -%></td>            
+    <td><%= record.board_type -%></td>
+    <td>
+      <% 
+      suit_string = ""
+      suit_string += record.suit.to_s if record.suit == true
+      suit_string += " - " + record.suit_size if record.suit_size
+      suit_string += " - " + record.height if record.height
+      suit_string += " - " + record.weight if record.weight
+      %>
+      <%= suit_string -%>
+    </td>
+    <td>
+      <% 
+      booty_string = ""
+      booty_string += record.booties.to_s if record.booties == true
+      booty_string += " - " + record.booty_size if record.booty_size
+      booty_string += " - " + record.shoe_size_type if record.shoe_size_type
+      %>
+      <%= booty_string -%>
+    </td>
+    <td><%= record.hoody ? record.hoody.to_s : "" -%></td>
+    <td>
+      <% 
+      gloves_string = ""
+      gloves_string += record.gloves.to_s if record.gloves == true
+      gloves_string += " - " + record.glove_size if record.glove_size
+      %>
+      <%= gloves_string -%>
+    </td>
+  </tr>
+  <% if record.notes -%>
+  <tr>
+    <td>Notes:</td>
+    <td colspan="9"><%= record.notes -%></td>
+  </tr>
+  <% end -%>
+  <tr><td colspan="9">&nbsp &nbsp &nbsp </td></tr>
+<% end -%>
+  <tr>
+    <td colspan="4"></td>
+    <td><%= num_people_with_boards.to_s -%></td>
+    <td><%= num_people_with_suits.to_s -%></td>
+    <td><%= num_people_with_booties.to_s -%></td>
+    <td><%= num_people_with_hoodies.to_s -%></td>
+    <td><%= num_people_with_gloves.to_s -%></td>
+  </tr>
+</table>
